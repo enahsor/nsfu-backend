@@ -15,7 +15,7 @@ class fileUploadHandler(RequestHandler):
         
 
         #fileObj = files.get("fileFromNetSuite", [])[0]
-        print(loads(self.response.files))
+        print(loads(self.request.files))
         self.write(dumps({"url": "https://somefakeurl.com"}))
         #response = self.processFile(fileObj)
         #self.replyToClient(response)        
