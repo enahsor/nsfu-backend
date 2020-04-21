@@ -11,11 +11,13 @@ class fileUploadHandler(RequestHandler):
     
     def post(self):
         files = self.request.files
-        firstFile = files.get("fileFromNetSuite", [])[0]
 
-        print(firstFile.get("filename"))
+        fileObj = files.get("fileFromNetSuite", [])[0]
+        filename = fileObj.get("filename")
+        fileBody = fileObj.get("body")
+        fileType = fileObj.get("content_type")
         
-        self.write(str(files)+" was selected")
+        self.write(f'Filename: {filename} FileType: {fileType}')
 
 
 
