@@ -2,6 +2,7 @@ from tornado import ioloop
 from tornado.web import Application, RequestHandler
 from json import loads
 import os
+import base64
 
 class fileUploadHandler(RequestHandler):
 
@@ -9,8 +10,8 @@ class fileUploadHandler(RequestHandler):
         self.write("Upload section")
     
     def post(self):
-        data = loads(self.request.body)
-        self.write(data)
+        files = self.request.files.keys()
+        print(str(files))
 
 
 
