@@ -27,7 +27,7 @@ if __name__ == "__main__":
         (r"/upload", fileUploadHandler)
     ])
 
-    print "Now listening on port 8080"
+    print("Now listening on port 8080")
     PORT = int(os.environ.get("PORT", 8080))
     app.listen(PORT)
     ioloop.IOLoop.current().start()
