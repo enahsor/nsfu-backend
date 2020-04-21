@@ -10,9 +10,10 @@ class fileUploadHandler(RequestHandler):
         self.write("Upload section")
     
     def post(self):
-        file_ = self.request.files["fileFromNetsuite"][0]
-        fileName = file_["filename"]
-        self.write(fileName+" was selected")
+        files = self.request.files
+        #file_ = self.request.files["fileFromNetSuite"][0]
+        #fileName = file_["filename"]
+        self.write(str(files)+" was selected")
 
 
 
