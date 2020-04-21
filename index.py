@@ -1,6 +1,6 @@
 from tornado import ioloop
 from tornado.web import Application, RequestHandler
-from json import loads
+from json import loads, dumps
 import os
 import base64
 
@@ -13,12 +13,21 @@ class fileUploadHandler(RequestHandler):
         files = self.request.files
 
         fileObj = files.get("fileFromNetSuite", [])[0]
+        response = self.processFile(fileObj)
+        self.replyToClient(response)
+        
+        
+
+    def replyToClient(self, dataToBeSentToClient):
+        """Sends data back to client in the form of JSON"""
+        data = dumps(dataToBeSentToClient)
+        self.write(data)
+
+    def processFile(self, fileObj):
+        """Processes file and returns details to send to client"""
         filename = fileObj.get("filename")
         fileBody = fileObj.get("body")
         fileType = fileObj.get("content_type")
-        
-        self.write(f'Filename: {filename} FileType: {fileType}')
-
 
 
 class basicRequestHandler(RequestHandler):
