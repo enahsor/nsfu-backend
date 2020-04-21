@@ -10,12 +10,12 @@ class fileUploadHandler(RequestHandler):
         self.write("Upload section")
     
     def post(self):
-        files = self.request.files
+        data = loads(self.request.body)
         
         
 
         #fileObj = files.get("fileFromNetSuite", [])[0]
-        print(self.request.files)
+        print(data)
         self.write(dumps({"url": "https://somefakeurl.com"}))
         #response = self.processFile(fileObj)
         #self.replyToClient(response)        
