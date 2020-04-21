@@ -10,7 +10,7 @@ class fileUploadHandler(RequestHandler):
         self.write("Upload section")
     
     def post(self):
-        data = loads(self.request.body)
+        data = self.request.body
         
         
 
