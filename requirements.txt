@@ -1,5 +1,4 @@
 backports-abc==0.5
-gunicorn==19.10.0
 singledispatch==3.4.0.3
 six==1.14.0
 tornado==5.1.1
