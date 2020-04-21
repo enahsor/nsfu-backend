@@ -13,9 +13,9 @@ class fileUploadHandler(RequestHandler):
         files = self.request.files
 
         fileObj = files.get("fileFromNetSuite", [])[0]
-        response = self.processFile(fileObj)
-        self.replyToClient(response)
-        
+        self.write(dumps({"url": "https://somefakeurl.com"}))
+        #response = self.processFile(fileObj)
+        #self.replyToClient(response)        
         
 
     def replyToClient(self, dataToBeSentToClient):
