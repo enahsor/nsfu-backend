@@ -1,4 +1,4 @@
-from tornado import ioloop
+from tornado import ioloop, httputil
 from tornado.web import Application, RequestHandler
 from json import loads, dumps
 import os
@@ -11,13 +11,13 @@ class fileUploadHandler(RequestHandler):
     
     def post(self):
         data = self.request.body
-        
+        #data is JSON Object
         
 
         #fileObj = files.get("fileFromNetSuite", [])[0]
-        print(data)
+        
         self.write(dumps({"url": "https://somefakeurl.com"}))
-        #response = self.processFile(fileObj)
+        #response = self.processFile(data)
         #self.replyToClient(response)        
         
 
